@@ -1,0 +1,99 @@
+<h1 class="titulo">AGREGAR VENDEDOR</h1>
+<div class="container">
+  <div class="a">
+    <form
+      (ngSubmit)="agregarVendedor()"
+      #vendedorForm="ngForm"
+      class="vendedor-form"
+    >
+      <mat-form-field class="form-group a">
+        <mat-label class="letrasInputs">Nombre:</mat-label>
+        <input
+          matInput
+          type="text"
+          id="nombre"
+          name="nombre"
+          [(ngModel)]="nuevoVendedor.nombre"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field class="form-group a">
+        <mat-label class="letrasInputs">Estado:</mat-label>
+        <mat-select
+          id="habilitado"
+          name="habilitado"
+          [(ngModel)]="nuevoVendedor.habilitado"
+          required
+        >
+          <mat-option value="true">Habilitado</mat-option>
+          <mat-option value="false">Deshabilitado</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="form-group a">
+        <mat-label class="letrasInputs">Fecha de Nacimiento:</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          id="fechaNacimiento"
+          name="fechaNacimiento"
+          [(ngModel)]="nuevoVendedor.fechaNacimiento"
+          required
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="form-group a">
+        <mat-label class="letrasInputs">Usuario Login:</mat-label>
+        <input
+          matInput
+          type="text"
+          id="usuarioLogin"
+          name="usuarioLogin"
+          [(ngModel)]="nuevoVendedor.usuarioLogin"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field class="form-group a">
+        <mat-label class="letrasInputs">Observaciones:</mat-label>
+        <textarea
+          matInput
+          id="observaciones"
+          name="observaciones"
+          [(ngModel)]="nuevoVendedor.observaciones"
+        ></textarea>
+      </mat-form-field>
+
+      <mat-form-field class="form-group a">
+        <mat-label class="letrasInputs">Localidad:</mat-label>
+        <mat-select
+          id="localidad"
+          name="localidad"
+          [(ngModel)]="nuevoVendedor.localidad"
+          required
+        >
+          <mat-option *ngFor="let localidad of localidades" [value]="localidad">
+            {{ localidad.localidad }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="form-group a">
+        <input
+          type="file"
+          id="foto"
+          name="foto"
+          (change)="onFileChange($event)"
+          class="form-control letrasInputs"
+        />
+      </div>
+
+      <div class="centrar">
+        <button class="btn boton" type="submit">CREAR VENDEDOR</button>
+      </div>
+    </form>
+  </div>
+</div>

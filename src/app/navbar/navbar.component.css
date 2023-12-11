@@ -1,0 +1,157 @@
+.navbar {
+  width: 100%;
+  height: 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: white;
+  box-shadow: 0 2px 5px 5px rgba(0, 0, 0, 0.2);
+}
+.imagen img {
+  height: 57.03px;
+  max-width: 100%;
+}
+button {
+  margin: 1rem;
+  font-size: 14px;
+  max-width: 100%;
+  background-color: white;
+  color: #36a9df;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.2s;
+}
+button:active {
+  background-color: rgba(200, 237, 255, 0.3);
+  color: #36a9df;
+  border-radius: 10px;
+}
+.mobMenu {
+  display: none;
+  color: black;
+  margin-top: 0;
+  border: none;
+}
+.desktopMenu {
+  display: flex;
+  margin-top: -0.5rem !important;
+  justify-content: center;
+  align-items: center;
+}
+.navMenu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 3rem;
+  right: 2rem;
+  z-index: 1;
+  background-color: white;
+  border-radius: 5px;
+  display: none;
+}
+.listItem {
+  padding: 6px 16px;
+  cursor: pointer;
+  color: #36a9df;
+  text-align: end;
+  margin-top: 2%;
+  font-family: -apple-system, BlinkMacSystemFont, "Montserrat", "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  font-size: 1rem;
+}
+.listItem:hover {
+  background-color: rgba(200, 237, 255, 0.2);
+}
+@media screen and (min-width: 1550px) {
+  .desktopMenu {
+    margin-right: -55%;
+  }
+  .imagen {
+    margin-top: -1.5%;
+    margin-left: -1%;
+  }
+}
+@media screen and (min-width: 1201px) and (max-width: 1549px) {
+  .imagen {
+    margin-top: -1.5%;
+    margin-left: -2%;
+  }
+  .desktopMenu {
+    max-width: 100%;
+    margin-right: -35%;
+  }
+}
+@media screen and (max-width: 1200px) and (min-width: 600px) {
+  .desktopMenu {
+    display: none;
+  }
+  .mobMenu {
+    display: block;
+  }
+  .mobMenu:hover {
+    background-color: rgb(230, 230, 230);
+    border-radius: 22px;
+  }
+  .navMenu {
+    right: 0;
+  }
+  .navbar {
+    height: 6.5%;
+  }
+  .imagen {
+    margin-top: -5%;
+
+    margin-left: -5%;
+  }
+}
+@media screen and (max-width: 600px) and (min-width: 413px) {
+  .desktopMenu {
+    display: none;
+  }
+  .mobMenu {
+    display: block;
+  }
+  .mobMenu:hover {
+    background-color: rgb(230, 230, 230);
+    border-radius: 22px;
+  }
+  .imagen {
+    margin-left: -5%;
+    margin-top: -5%;
+  }
+  .navbar {
+    width: 100% !important;
+    height: 6%;
+  }
+}
+@media screen and (max-width: 413px) and (min-width: 403px) {
+  .desktopMenu {
+    display: none;
+  }
+  .mobMenu {
+    display: block;
+  }
+  .imagen {
+    margin-top: -3%;
+    margin-left: -10%;
+    width: 270.53px;
+    height: 57.03px;
+  }
+}
+@media screen and (max-width: 403px) {
+  .desktopMenu {
+    display: none;
+  }
+  .mobMenu {
+    display: block;
+  }
+  .imagen {
+    margin-top: -10%;
+    margin-left: -10%;
+    width: 220.53px;
+    height: 57.03px;
+  }
+}

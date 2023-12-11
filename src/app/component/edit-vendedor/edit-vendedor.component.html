@@ -1,0 +1,106 @@
+<h1 class="titulo">MODIFICAR VENDEDOR</h1>
+<div class="container">
+  <div class="a">
+    <form
+      (ngSubmit)="modificarVendedor()"
+      *ngIf="vendedor"
+      class="needs-validation container"
+      novalidate
+    >
+      <h2 class="centrar">VENDEDOR SELECCIONADO: {{ vendedor.nombre }}</h2>
+
+      <mat-form-field class="form-group a">
+        <mat-label class="letrasInputs">Fecha de Nacimiento:</mat-label>
+        <input
+          matInput
+          type="date"
+          id="fechaNacimiento"
+          name="fechaNacimiento"
+          [(ngModel)]="vendedor.fechaNacimiento"
+          required
+        />
+        <div class="invalid-feedback">Campo requerido.</div>
+      </mat-form-field>
+
+      <mat-form-field class="form-group a">
+        <mat-label class="letrasInputs">Estado:</mat-label>
+        <mat-select
+          id="habilitado"
+          name="habilitado"
+          [(ngModel)]="vendedor.habilitado"
+          required
+        >
+          <mat-option value="true">Habilitado</mat-option>
+          <mat-option value="false">Deshabilitado</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="form-group a">
+        <mat-label class="letrasInputs">Nombre:</mat-label>
+        <input
+          matInput
+          type="text"
+          id="nombre"
+          name="nombre"
+          [(ngModel)]="vendedor.nombre"
+          required
+        />
+        <div class="invalid-feedback">Campo requerido.</div>
+      </mat-form-field>
+
+      <mat-form-field class="form-group a">
+        <mat-label class="letrasInputs">Observaciones:</mat-label>
+        <textarea
+          matInput
+          id="observaciones"
+          name="observaciones"
+          [(ngModel)]="vendedor.observaciones"
+        ></textarea>
+      </mat-form-field>
+
+      <mat-form-field class="form-group a">
+        <mat-label class="letrasInputs">Usuario Login:</mat-label>
+        <input
+          matInput
+          type="text"
+          id="usuarioLogin"
+          name="usuarioLogin"
+          [(ngModel)]="vendedor.usuarioLogin"
+          required
+        />
+        <div class="invalid-feedback">Campo requerido.</div>
+      </mat-form-field>
+
+      <mat-form-field class="form-group a">
+        <mat-label class="letrasInputs">Localidad:</mat-label>
+        <mat-select
+          id="localidad"
+          name="localidad"
+          [(ngModel)]="vendedor.localidad"
+          required
+        >
+          <mat-option *ngFor="let localidad of localidades" [value]="localidad">
+            {{ localidad.localidad }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="form-group a">
+        <mat-label class="letrasInputs">Código Postal:</mat-label>
+        <input
+          matInput
+          type="text"
+          id="codigoPostal"
+          name="codigoPostal"
+          [(ngModel)]="vendedor.localidad.codigoPostal"
+          required
+        />
+        <div class="invalid-feedback">Campo requerido.</div>
+      </mat-form-field>
+
+      <div class="centrar">
+        <button type="submit" class="btn boton">COMPLETAR MODIFICACIÓN</button>
+      </div>
+    </form>
+  </div>
+</div>

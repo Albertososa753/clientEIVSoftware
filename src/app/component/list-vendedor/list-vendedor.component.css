@@ -1,0 +1,43 @@
+.titulo {
+  text-align: center;
+  font-size: 40px;
+  margin-top: 40px;
+  font-family: "Montserrat", sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+#button {
+  display: flex;
+  justify-content: space-around;
+  border-color: black;
+}
+.botones {
+  background-color: hsla(0, 0%, 100%, 0.8);
+  color: #36a9df;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  transition: opacity 1s ease;
+}
+.botones:hover {
+  opacity: 1;
+  background-color: #ffffff;
+}
+.centrador {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+@media screen and (max-width: 754px) {
+  .list {
+    margin-left: -100%;
+    width: 20px;
+  }
+}
+@media screen and (min-width: 843px) {
+  .list {
+    width: 80%;
+  }
+  table {
+    width: 100%;
+  }
+}

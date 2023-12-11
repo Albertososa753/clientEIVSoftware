@@ -1,1 +1,72 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+  color: white;
+  background-color: #36a9df;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.boton {
+  background-color: hsla(0, 0%, 100%, 0.8);
+  color: #36a9df;
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+  transition: opacity 1s ease;
+  width: 30%;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.boton:hover {
+  opacity: 1;
+  background-color: #ffffff;
+}
+.letrasInputs {
+  color: #36a9df;
+}
+span {
+  color: #36a9df;
+}
+.a {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.form-group {
+  margin-bottom: -5px;
+}
+.centrar {
+  display: flex;
+  justify-content: center;
+}
+.snackbar-exito {
+  background-color: #4caf50;
+}
+.snackbar-error {
+  background-color: #f44336;
+}
+.mat-input-element {
+  background-color: transparent;
+}
+
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+  .boton {
+    width: 20%;
+  }
+}
+@media screen and (max-width: 992px) and (min-width: 380px) {
+  .boton {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 428px) and (min-width: 350px) {
+  .boton {
+    width: 50%;
+    font-size: 12px;
+  }
+}

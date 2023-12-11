@@ -1,0 +1,48 @@
+<nav class="navbar">
+  <div
+    style="display: flex; justify-content: space-between; align-items: center"
+  >
+    <div class="imagen">
+      <img
+        style="cursor: pointer"
+        src="https://www.eiva.com.ar/static/media/logo_eiv_color_sep.3e6158c6.svg"
+        alt="EIV Software Logo"
+        routerLink="/"
+      />
+    </div>
+
+    <div class="desktopMenu">
+      <button routerLink="/" class="desktopMenuButton">HOME</button>
+      <button routerLink="/lista-vendedores" class="desktopMenuButton">
+        LISTA DE VENDEDORES
+      </button>
+      <button routerLink="/nuevo-vendedor" class="desktopMenuButton">
+        AGREGAR VENDEDOR
+      </button>
+    </div>
+  </div>
+
+  <button class="mobMenu" (click)="showMenu = !showMenu">
+    <mat-icon style="display: flex">menu</mat-icon>
+  </button>
+
+  <div class="navMenu" [style.display]="showMenu ? 'flex' : 'none'">
+    <button routerLink="/" class="listItem" (click)="showMenu = false">
+      HOME
+    </button>
+    <button
+      routerLink="/nuevo-vendedor"
+      class="listItem"
+      (click)="showMenu = false"
+    >
+      AGREGAR VENDEDOR
+    </button>
+    <button
+      routerLink="/lista-vendedores"
+      class="listItem"
+      (click)="showMenu = false"
+    >
+      LISTA DE VENDEDORES
+    </button>
+  </div>
+</nav>
