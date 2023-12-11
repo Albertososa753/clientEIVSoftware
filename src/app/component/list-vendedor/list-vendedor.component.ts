@@ -10,6 +10,7 @@ import { MensajeService } from '../../service/mensaje-service.service';
   styleUrls: ['./list-vendedor.component.css'],
 })
 export class ListVendedorComponent implements OnInit {
+  
   dataSource: any[] = [];
   localidades: any[] = [];
   vendedores: any[] = [];

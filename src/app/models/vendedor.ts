@@ -1,10 +1,9 @@
-import { Localidad } from './localidad';
 
 export interface Vendedor {
+  id?: number; 
   fechaNacimiento: string;
   habilitado: boolean;
-  id: number;
-  localidad: Localidad;
+  localidadId: number;
   nombre: string;
   observaciones: null | string;
   usuarioLogin: string;

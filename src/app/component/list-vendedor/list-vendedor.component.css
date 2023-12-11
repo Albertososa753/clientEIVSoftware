@@ -27,6 +27,7 @@
   flex-direction: column;
   align-items: center;
 }
+
 @media screen and (max-width: 754px) {
   .list {
     margin-left: -100%;

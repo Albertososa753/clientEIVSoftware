@@ -3,7 +3,7 @@ import { ApiService } from '../../service/api.service';
 import { Vendedor } from 'src/app/models/vendedor';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Localidad } from 'src/app/models/localidad';
-import { MensajeService } from '../../service/mensaje-service.service'; // Corregir el nombre del servicio
+import { MensajeService } from '../../service/mensaje-service.service';
 
 @Component({
   selector: 'app-home',
@@ -11,10 +11,15 @@ import { MensajeService } from '../../service/mensaje-service.service'; // Corre
   styleUrls: ['./edit-vendedor.component.css'],
 })
 export class EditVendedorComponent implements OnInit {
+
+
   localidades: Localidad[] = [];
   vendedores: Vendedor[] = [];
   vendedor: Vendedor | null = null;
+  vendedorOriginal: any = {};
   currentVendedorId: number = 0;
+  localidadSeleccionada: any = {};
+  idLocalidad: number = 0;
 
   constructor(
     private apiService: ApiService,
@@ -44,10 +49,11 @@ export class EditVendedorComponent implements OnInit {
   }
 
   obtenerVendedor() {
-    this.vendedor =
+    this.vendedorOriginal =
       this.vendedores.find((v) => v.id === this.currentVendedorId) || null;
-    
+    this.vendedor = this.vendedorOriginal;
   }
+
   obtenerLocalidades() {
     this.apiService.getLocalidades().subscribe((localidades) => {
       this.localidades = localidades;
@@ -56,11 +62,18 @@ export class EditVendedorComponent implements OnInit {
 
   modificarVendedor() {
     if (this.vendedor) {
+      if (!this.vendedor.localidadId && !this.localidadSeleccionada.id) {
+        this.vendedor.localidadId = this.vendedorOriginal.localidad.id;
+      } else {
+        this.vendedor.localidadId = this.localidadSeleccionada.id;
+      }
       const fechaNacimiento = new Date(this.vendedor.fechaNacimiento);
       const edad = this.calcularEdad(fechaNacimiento);
 
       if (edad < 18 || edad > 65) {
-        this.mensajeService.mostrarMensajeError('La edad debe estar en el rango de 18 a 65 años.');
+        this.mensajeService.mostrarMensajeError(
+          'La edad debe estar en el rango de 18 a 65 años.'
+        );
         return;
       }
 
@@ -68,11 +81,16 @@ export class EditVendedorComponent implements OnInit {
         .updateVendedores(this.currentVendedorId, this.vendedor)
         .subscribe(
           (resultado) => {
-            this.mensajeService.mostrarMensajeExito('Vendedor modificado exitosamente');
+            this.mensajeService.mostrarMensajeExito(
+              'Vendedor modificado exitosamente'
+            );
             console.log('Vendedor modificado exitosamente:', resultado);
+            this.router.navigate(['/lista-vendedores']);
           },
           (error) => {
-            this.mensajeService.mostrarMensajeError('Error al modificar el vendedor');
+            this.mensajeService.mostrarMensajeError(
+              'Error al modificar el vendedor'
+            );
             console.error('Error al modificar el vendedor:', error);
           }
         );

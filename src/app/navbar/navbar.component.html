@@ -10,7 +10,6 @@
         routerLink="/"
       />
     </div>
-
     <div class="desktopMenu">
       <button routerLink="/" class="desktopMenuButton">HOME</button>
       <button routerLink="/lista-vendedores" class="desktopMenuButton">
@@ -21,11 +20,9 @@
       </button>
     </div>
   </div>
-
   <button class="mobMenu" (click)="showMenu = !showMenu">
     <mat-icon style="display: flex">menu</mat-icon>
   </button>
-
   <div class="navMenu" [style.display]="showMenu ? 'flex' : 'none'">
     <button routerLink="/" class="listItem" (click)="showMenu = false">
       HOME
